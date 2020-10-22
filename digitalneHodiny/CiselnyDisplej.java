@@ -71,6 +71,14 @@ public class CiselnyDisplej {
         }
     }
     
+    public String getHodnotaAkoRetazecAMPM() {
+        if (this.hodnota < 12) {
+            return "AM";
+        } else {
+            return "PM";
+        }
+    }
+    
     /**
      * Zvacsi hodnotu na ciselnom displeji o hodnotu jedna. Ak dosiahne hornu
      * hranicu, pokracuje znovu od nuly.

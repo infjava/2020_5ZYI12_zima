@@ -50,6 +50,7 @@ public class DigitalneHodiny {
     public String getCas() {
         return this.hodiny.getHodnotaAkoRetazec12()
             + ":" + this.minuty.getHodnotaAkoRetazec()
-            + ":" + this.sekundy.getHodnotaAkoRetazec();
+            + ":" + this.sekundy.getHodnotaAkoRetazec()
+            + " " + this.hodiny.getHodnotaAkoRetazecAMPM();
     }
 }
