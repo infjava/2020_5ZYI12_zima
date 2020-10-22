@@ -12,9 +12,10 @@ public class DigitalneHodiny {
      * polnoci (00:00).
      */
     public DigitalneHodiny() {
-        this.hodiny = new CiselnyDisplej(24);
+        this.hodiny = new CiselnyDisplej(13);
         this.minuty = new CiselnyDisplej(60);
         this.sekundy = new CiselnyDisplej(60);
+        this.hodiny.setHodnota(12);
     }
     
     /**
@@ -28,6 +29,10 @@ public class DigitalneHodiny {
             
             if (this.minuty.getHodnota() == 0) {
                 this.hodiny.krok();
+                
+                if (this.hodiny.getHodnota() == 0) {
+                    this.hodiny.setHodnota(1);
+                }
             }
         }
     }
@@ -39,7 +44,9 @@ public class DigitalneHodiny {
      * @param minuta Minuta na ktoru sa ma cas nastavit.
      */
     public void setCas(int hodina, int minuta, int sekunda) {
-        this.hodiny.setHodnota(hodina);
+        if (hodina != 0) {
+            this.hodiny.setHodnota(hodina);
+        }
         this.minuty.setHodnota(minuta);
         this.sekundy.setHodnota(sekunda);
     }
