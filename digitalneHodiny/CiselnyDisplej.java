@@ -4,6 +4,7 @@
  * cisla do tvaru dvojcifernej hodnoty.
  */
 public class CiselnyDisplej {
+    private int dolnaHranica;
     private int hornaHranica;
     private int hodnota;
     
@@ -13,7 +14,8 @@ public class CiselnyDisplej {
      * @param pthis.hornaHranica Predstavuje cislo, ktore hodnota ciselneho
      * displeja nemoze dosiahnut.
      */
-    public CiselnyDisplej(int hornaHranica) {
+    public CiselnyDisplej(int dolnaHranica, int hornaHranica) {
+        this.dolnaHranica = dolnaHranica;
         this.hornaHranica = hornaHranica;
         this.hodnota = 0;
     }
@@ -34,7 +36,7 @@ public class CiselnyDisplej {
      * @param hodnota hodnota, ktora sa ma nastavit.
      */
     public void setHodnota(int hodnota) {
-        if (hodnota >= 0) {
+        if (hodnota >= this.dolnaHranica) {
             if (hodnota < this.hornaHranica) {
                 this.hodnota = hodnota;
             }
@@ -58,6 +60,10 @@ public class CiselnyDisplej {
      * hranicu, pokracuje znovu od nuly.
      */
     public void krok() {
-        this.hodnota = (this.hodnota + 1) % this.hornaHranica;
+        // this.hodnota = (this.hodnota + 1 - this.dolnaHranica) % (this.hornaHranica - this.dolnaHranica) + this.dolnaHranica;
+        this.hodnota = this.hodnota + 1;
+        if (this.hodnota == this.hornaHranica) {
+            this.hodnota = this.dolnaHranica;
+        }
     }
 }
