@@ -1,11 +1,13 @@
 public class Pad {
     private Obdlznik grafika;
+    private int poziciaY;
     
     public Pad(boolean stranaPrava) {
         this.grafika = new Obdlznik();
         
         this.grafika.zmenStrany(5, 50);
         
+        this.poziciaY = 125;
         this.grafika.posunZvisle(75);
         if (stranaPrava) {
             this.grafika.posunVodorovne(235);
@@ -17,10 +19,16 @@ public class Pad {
     }
     
     public void posunDole() {
-        this.grafika.posunZvisle(5);
+        if (this.poziciaY < 250) {
+            this.grafika.posunZvisle(5);
+            this.poziciaY = this.poziciaY + 5;
+        }
     }
     
     public void posunHore() {
-        this.grafika.posunZvisle(-5);
+        if (this.poziciaY > 0) {
+            this.grafika.posunZvisle(-5);
+            this.poziciaY = this.poziciaY - 5;
+        }
     }
 }
