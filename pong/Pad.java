@@ -15,4 +15,12 @@ public class Pad {
         
         this.grafika.zobraz();
     }
+    
+    public void posunDole() {
+        this.grafika.posunZvisle(5);
+    }
+    
+    public void posunHore() {
+        this.grafika.posunZvisle(-5);
+    }
 }
