@@ -1,6 +1,7 @@
 public class Lopticka {
     private Kruh grafika;
-    private String smer;
+    private int smerX;
+    private int smerY;
     
     public Lopticka() {
         this.grafika = new Kruh();
@@ -12,30 +13,15 @@ public class Lopticka {
         
         this.grafika.zobraz();
         
-        this.smer = "LD";
+        this.smerX = -5;
+        this.smerY = 5;
     }
     
     public void posunSa() {
         this.grafika.skry();
         
-        switch (this.smer) {
-            case "LD":
-                this.grafika.posunVodorovne(-5);
-                this.grafika.posunZvisle(5);
-                break;
-            case "LH":
-                this.grafika.posunVodorovne(-5);
-                this.grafika.posunZvisle(-5);
-                break;
-            case "PD":
-                this.grafika.posunVodorovne(5);
-                this.grafika.posunZvisle(5);
-                break;
-            case "PH":
-                this.grafika.posunVodorovne(5);
-                this.grafika.posunZvisle(-5);
-                break;
-        }
+        this.grafika.posunVodorovne(this.smerX);
+        this.grafika.posunZvisle(this.smerY);
         
         this.grafika.zobraz();
     }
