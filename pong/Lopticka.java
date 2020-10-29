@@ -18,18 +18,23 @@ public class Lopticka {
     public void posunSa() {
         this.grafika.skry();
         
-        if (this.smer.equals("LD")) {
-            this.grafika.posunVodorovne(-5);
-            this.grafika.posunZvisle(5);
-        } else if (this.smer.equals("LH")) {
-            this.grafika.posunVodorovne(-5);
-            this.grafika.posunZvisle(-5);
-        } else if (this.smer.equals("PD")) {
-            this.grafika.posunVodorovne(5);
-            this.grafika.posunZvisle(5);
-        } else if (this.smer.equals("PH")) {
-            this.grafika.posunVodorovne(5);
-            this.grafika.posunZvisle(-5);
+        switch (this.smer) {
+            case "LD":
+                this.grafika.posunVodorovne(-5);
+                this.grafika.posunZvisle(5);
+                break;
+            case "LH":
+                this.grafika.posunVodorovne(-5);
+                this.grafika.posunZvisle(-5);
+                break;
+            case "PD":
+                this.grafika.posunVodorovne(5);
+                this.grafika.posunZvisle(5);
+                break;
+            case "PH":
+                this.grafika.posunVodorovne(5);
+                this.grafika.posunZvisle(-5);
+                break;
         }
         
         this.grafika.zobraz();
