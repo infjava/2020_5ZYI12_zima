@@ -2,8 +2,11 @@ import java.util.Random;
 
 public class Lopticka {
     private Kruh grafika;
+    
     private int smerX;
     private int smerY;
+    
+    private int poziciaY;
     
     public Lopticka() {
         Random nahodneCisla = new Random();
@@ -12,10 +15,10 @@ public class Lopticka {
         
         this.grafika.zmenPriemer(10);
         
-        int poziciaY = nahodneCisla.nextInt(261) + 20;
+        this.poziciaY = nahodneCisla.nextInt(261) + 20;
         
         this.grafika.posunVodorovne(125);
-        this.grafika.posunZvisle(poziciaY - 60);
+        this.grafika.posunZvisle(this.poziciaY - 60);
         
         this.grafika.zobraz();
         
@@ -40,10 +43,16 @@ public class Lopticka {
     }
     
     public void posunSa() {
+        if (this.poziciaY <= 0 || this.poziciaY >= 300) {
+            this.smerY = -this.smerY;
+        }
+        
         this.grafika.skry();
         
         this.grafika.posunVodorovne(this.smerX);
         this.grafika.posunZvisle(this.smerY);
+        
+        this.poziciaY += this.smerY;
         
         this.grafika.zobraz();
     }
