@@ -7,6 +7,7 @@ public class Lopticka {
     private int smerY;
     
     private int poziciaY;
+    private int poziciaX;
     
     public Lopticka() {
         Random nahodneCisla = new Random();
@@ -16,6 +17,7 @@ public class Lopticka {
         this.grafika.zmenPriemer(10);
         
         this.poziciaY = nahodneCisla.nextInt(261) + 20;
+        this.poziciaX = 145;
         
         this.grafika.posunVodorovne(125);
         this.grafika.posunZvisle(this.poziciaY - 60);
@@ -53,7 +55,20 @@ public class Lopticka {
         this.grafika.posunZvisle(this.smerY);
         
         this.poziciaY += this.smerY;
+        this.poziciaX += this.smerX;
         
         this.grafika.zobraz();
+    }
+    
+    public int getStredX() {
+        return this.poziciaX + 5;
+    }
+    
+    public int getStredY() {
+        return this.poziciaY + 5;
+    }
+    
+    public void odrazX() {
+        this.smerX = -this.smerX;
     }
 }

@@ -13,6 +13,10 @@ public class Hra {
     
     public void tik() {
         this.lopticka.posunSa();
+        
+        if (this.lavyPad.kolidujeS(this.lopticka) || this.pravyPad.kolidujeS(this.lopticka)) {
+            this.lopticka.odrazX();
+        }
     }
     
     public void posunHore() {
