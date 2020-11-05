@@ -3,12 +3,16 @@ public class Hra {
     private Pad lavyPad;
     private Pad pravyPad;
     private Manazer manazer;
+    private Score laveScore;
+    private Score praveScore;
     
     public Hra() {
         this.lopticka = new Lopticka();
         this.lavyPad = new Pad(false);
         this.pravyPad = new Pad(true);
         this.manazer = new Manazer();
+        this.laveScore = new Score();
+        this.praveScore = new Score();
     }
     
     public void tik() {
@@ -19,6 +23,12 @@ public class Hra {
         }
         
         if (this.lopticka.jeMimoObrazovky()) {
+            if (this.lopticka.getStredX() > 150) {
+                this.laveScore.zvys();
+            } else {
+                this.praveScore.zvys();
+            }
+            
             this.lopticka.vratDoStredu();
         }
     }
