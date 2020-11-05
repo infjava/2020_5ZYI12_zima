@@ -35,6 +35,10 @@ public class Hra {
         this.pravyPad.posunDole();
     }
     
+    public void zrus() {
+        System.exit(0);
+    }
+    
     public void start() {
         this.manazer.spravujObjekt(this);
     }
