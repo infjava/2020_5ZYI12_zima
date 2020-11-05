@@ -71,4 +71,42 @@ public class Lopticka {
     public void odrazX() {
         this.smerX = -this.smerX;
     }
+    
+    public boolean jeMimoObrazovky() {
+        return this.poziciaX < 0 || this.poziciaX > 300;
+    }
+    
+    public void vratDoStredu() {
+        Random nahodneCisla = new Random();
+        
+        int staraX = this.poziciaX;
+        int staraY = this.poziciaY;
+        
+        this.poziciaY = nahodneCisla.nextInt(261) + 20;
+        this.poziciaX = 145;
+        
+        this.grafika.skry();
+        this.grafika.posunVodorovne(this.poziciaX - staraX);
+        this.grafika.posunZvisle(this.poziciaY - staraY);
+        this.grafika.zobraz();
+        
+        switch (nahodneCisla.nextInt(4)) {
+            case 0:
+                this.smerX = -5;
+                this.smerY = 5;
+                break;
+            case 1:
+                this.smerX = 5;
+                this.smerY = 5;
+                break;
+            case 2:
+                this.smerX = -5;
+                this.smerY = -5;
+                break;
+            default:
+                this.smerX = 5;
+                this.smerY = -5;
+                break;
+        }
+    }
 }

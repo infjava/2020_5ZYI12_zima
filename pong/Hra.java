@@ -17,6 +17,10 @@ public class Hra {
         if (this.lavyPad.kolidujeS(this.lopticka) || this.pravyPad.kolidujeS(this.lopticka)) {
             this.lopticka.odrazX();
         }
+        
+        if (this.lopticka.jeMimoObrazovky()) {
+            this.lopticka.vratDoStredu();
+        }
     }
     
     public void posunHore() {
