@@ -11,8 +11,8 @@ public class Hra {
         this.lavyPad = new Pad(false);
         this.pravyPad = new Pad(true);
         this.manazer = new Manazer();
-        this.laveScore = new Score();
-        this.praveScore = new Score();
+        this.laveScore = new Score(false);
+        this.praveScore = new Score(true);
     }
     
     public void tik() {
