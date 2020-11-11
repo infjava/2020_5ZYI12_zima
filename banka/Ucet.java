@@ -12,4 +12,19 @@ public class Ucet {
     public String getIban() {
         return this.iban;
     }
+    
+    public void vlozPeniaze(int eur, int centov) {
+        this.zostatokVCentoch += eur * 100 + centov;
+    }
+    
+    public void vyberPeniaze(int eur, int centov) {
+        if (this.zostatokVCentoch >= eur * 100 + centov) {
+            this.zostatokVCentoch -= eur * 100 + centov;
+        }
+    }
+    
+    public String getZostatok() {
+        // 123,10 € // 12310
+        return String.format("%d,%02d €", this.zostatokVCentoch / 100, this.zostatokVCentoch % 100);
+    }
 }
