@@ -3,6 +3,9 @@ public class Ucet {
     private String menoVlastnika;
     private String iban;
     
-    public Ucet() {
+    public Ucet(String menoVlastnika, String iban) {
+        this.zostatokVCentoch = 0;
+        this.menoVlastnika = menoVlastnika;
+        this.iban = iban;
     }
 }
