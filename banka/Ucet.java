@@ -8,4 +8,8 @@ public class Ucet {
         this.menoVlastnika = menoVlastnika;
         this.iban = iban;
     }
+    
+    public String getIban() {
+        return this.iban;
+    }
 }
