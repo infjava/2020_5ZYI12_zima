@@ -28,4 +28,10 @@ public class Banka {
         
         return novyUcet;
     }
+    
+    public void zaratajUroky(int percentoUrokov) {
+        for (Ucet spracovavany : this.ucty) {
+            spracovavany.vlozUroky(percentoUrokov);
+        }
+    }
 }

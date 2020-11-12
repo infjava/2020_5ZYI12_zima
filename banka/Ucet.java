@@ -50,4 +50,8 @@ public class Ucet {
         // 123,10 € // 12310
         return String.format("%d,%02d €", this.zostatokVCentoch / 100, this.zostatokVCentoch % 100);
     }
+    
+    public void vlozUroky(int percentoUrokov) {
+        this.zostatokVCentoch += this.zostatokVCentoch * percentoUrokov / 100;
+    }
 }
