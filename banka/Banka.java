@@ -1,11 +1,14 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.math.BigInteger;
 
 public class Banka {
     private String kodBanky;
+    private ArrayList<Ucet> ucty;
     
     public Banka(String kodBanky) {
         this.kodBanky = kodBanky;
+        this.ucty = new ArrayList<Ucet>();
     }
     
     public Ucet zalozUcet(String menoVlastnika) {
@@ -19,6 +22,10 @@ public class Banka {
         
         String iban = String.format("SK%02d%s000000%02d%08d", kontrolneCislice, this.kodBanky, bban1, bban2);
         
-        return new Ucet(menoVlastnika, iban);
+        Ucet novyUcet = new Ucet(menoVlastnika, iban);
+        
+        this.ucty.add(novyUcet);
+        
+        return novyUcet;
     }
 }
