@@ -14,21 +14,31 @@ public class Ucet {
     }
     
     public void vlozPeniaze(int eur, int centov) {
-        if (centov < 100) {
-            if (eur >= 0 && centov >= 0) {
-                this.zostatokVCentoch += eur * 100 + centov;
-            }
+        if (centov >= 100) {
+            return;
         }
+        
+        if (eur < 0 || centov < 0) {
+            return;
+        }
+        
+        this.zostatokVCentoch += eur * 100 + centov;
     }
     
     public void vyberPeniaze(int eur, int centov) {
-        if (centov < 100) {
-            if (eur >= 0 && centov >= 0) {
-                if (this.zostatokVCentoch >= eur * 100 + centov) {
-                    this.zostatokVCentoch -= eur * 100 + centov;
-                }
-            }
+        if (centov >= 100) {
+            return;
         }
+        
+        if (eur < 0 || centov < 0) {
+            return;
+        }
+        
+        if (this.zostatokVCentoch < eur * 100 + centov) {
+            return;
+        }
+        
+        this.zostatokVCentoch -= eur * 100 + centov;
     }
     
     public String getZostatok() {
