@@ -34,4 +34,14 @@ public class Banka {
             spracovavany.vlozUroky(percentoUrokov);
         }
     }
+    
+    public Ucet getUcet(String iban) {
+        for (Ucet spracovavany : this.ucty) {
+            if (spracovavany.getIban().equals(iban)) {
+                return spracovavany;
+            }
+        }
+        
+        return null;
+    }
 }
