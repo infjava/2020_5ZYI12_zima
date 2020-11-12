@@ -15,10 +15,12 @@ public class Ucet {
     
     public void vlozPeniaze(int eur, int centov) {
         if (centov >= 100) {
+            System.out.println("Nespravny pocet centov");
             return;
         }
         
         if (eur < 0 || centov < 0) {
+            System.out.println("Nespravny pocet eur");
             return;
         }
         
@@ -27,14 +29,17 @@ public class Ucet {
     
     public void vyberPeniaze(int eur, int centov) {
         if (centov >= 100) {
+            System.out.println("Nespravny pocet centov");
             return;
         }
         
         if (eur < 0 || centov < 0) {
+            System.out.println("Nespravny pocet eur");
             return;
         }
         
         if (this.zostatokVCentoch < eur * 100 + centov) {
+            System.out.println("Nemas dost financii");
             return;
         }
         
