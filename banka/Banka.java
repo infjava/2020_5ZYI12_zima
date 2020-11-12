@@ -22,7 +22,7 @@ public class Banka {
         
         String iban = String.format("SK%02d%s000000%02d%08d", kontrolneCislice, this.kodBanky, bban1, bban2);
         
-        Ucet novyUcet = new Ucet(menoVlastnika, iban);
+        Ucet novyUcet = new Ucet(this, menoVlastnika, iban);
         
         this.ucty.add(novyUcet);
         

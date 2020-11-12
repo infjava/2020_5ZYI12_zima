@@ -2,11 +2,13 @@ public class Ucet {
     private long zostatokVCentoch;
     private String menoVlastnika;
     private String iban;
+    private Banka banka;
     
-    public Ucet(String menoVlastnika, String iban) {
+    public Ucet(Banka banka, String menoVlastnika, String iban) {
         this.zostatokVCentoch = 0;
         this.menoVlastnika = menoVlastnika;
         this.iban = iban;
+        this.banka = banka;
     }
     
     public String getIban() {
@@ -53,5 +55,32 @@ public class Ucet {
     
     public void vlozUroky(int percentoUrokov) {
         this.zostatokVCentoch += this.zostatokVCentoch * percentoUrokov / 100;
+    }
+    
+    public void prevedPeniaze(String cielovyIban, int eur, int centov) {
+        if (centov >= 100) {
+            System.out.println("Nespravny pocet centov");
+            return;
+        }
+        
+        if (eur < 0 || centov < 0) {
+            System.out.println("Nespravny pocet eur");
+            return;
+        }
+        
+        if (this.zostatokVCentoch < eur * 100 + centov) {
+            System.out.println("Nemas dost financii");
+            return;
+        }
+        
+        Ucet cielovyUcet = this.banka.getUcet(cielovyIban);
+        
+        if (cielovyUcet == null) {
+            System.out.println("Neexistujuci ucet");
+            return;
+        }
+        
+        this.zostatokVCentoch -= eur * 100 + centov;
+        cielovyUcet.zostatokVCentoch += eur * 100 + centov;
     }
 }
