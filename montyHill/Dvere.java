@@ -16,4 +16,8 @@ public class Dvere {
     public void zrusVolbu() {
         this.zvolene = false;
     }
+    
+    public boolean predstavujuVyhru() {
+        return this.zvolene && this.obsahujuAuto;
+    }
 }

@@ -22,4 +22,14 @@ public class Sutaz {
         
         this.dvere[cislo].zvol();
     }
+    
+    public boolean jeVyhra() {
+        for (Dvere aktualne : this.dvere) {
+            if (aktualne.predstavujuVyhru()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 }
