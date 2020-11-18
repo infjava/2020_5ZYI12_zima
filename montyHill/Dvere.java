@@ -8,4 +8,12 @@ public class Dvere {
         this.obsahujuAuto = obsahujuAuto;
         this.zvolene = false;
     }
+    
+    public void zvol() {
+        this.zvolene = true;
+    }
+    
+    public void zrusVolbu() {
+        this.zvolene = false;
+    }
 }

@@ -14,4 +14,12 @@ public class Sutaz {
             this.dvere[i] = new Dvere(i == vyherneDvere);
         }
     }
+    
+    public void zvolDvere(int cislo) {
+        for (Dvere aktualne : this.dvere) {
+            aktualne.zrusVolbu();
+        }
+        
+        this.dvere[cislo].zvol();
+    }
 }
