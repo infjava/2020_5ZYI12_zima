@@ -10,6 +10,10 @@ public class Dvere {
     }
     
     public void zvol() {
+        if (this.otvorene) {
+            return;
+        }
+        
         this.zvolene = true;
     }
     
@@ -22,6 +26,14 @@ public class Dvere {
     }
     
     public void otvor() {
+        if (this.obsahujuAuto) {
+            return;
+        }
+        
+        if (this.zvolene) {
+            return;
+        }
+        
         this.otvorene = true;
     }
 }
