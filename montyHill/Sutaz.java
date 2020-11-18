@@ -32,4 +32,8 @@ public class Sutaz {
         
         return false;
     }
+    
+    public void otvorDvere(int cislo) {
+        this.dvere[cislo].otvor();
+    }
 }

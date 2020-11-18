@@ -20,4 +20,8 @@ public class Dvere {
     public boolean predstavujuVyhru() {
         return this.zvolene && this.obsahujuAuto;
     }
+    
+    public void otvor() {
+        this.otvorene = true;
+    }
 }
