@@ -1,15 +1,11 @@
-import java.util.Random;
-
 public class Dvere {
     private boolean otvorene;
     private boolean obsahujuAuto;
     private boolean zvolene;
     
-    public Dvere() {
-        Random nahodneCisla = new Random();
-        
+    public Dvere(boolean obsahujuAuto) {
         this.otvorene = false;
-        this.obsahujuAuto = nahodneCisla.nextInt(3) == 2;
+        this.obsahujuAuto = obsahujuAuto;
         this.zvolene = false;
     }
 }
