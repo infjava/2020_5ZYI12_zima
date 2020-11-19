@@ -9,8 +9,13 @@ public class Dvere {
         this.zvolene = false;
     }
     
+    public boolean dateSaZvolit() {
+        return !this.otvorene && !this.zvolene;
+    }
+    
     public void zvol() {
         if (this.otvorene) {
+            System.out.println("Nemozem zvolit, lebo dvere su otvorene");
             return;
         }
         
@@ -25,12 +30,18 @@ public class Dvere {
         return this.zvolene && this.obsahujuAuto;
     }
     
+    public boolean dateSaOtvorit() {
+        return !this.obsahujuAuto && !this.zvolene;
+    }
+    
     public void otvor() {
         if (this.obsahujuAuto) {
+            System.out.println("Nemozem otvorit, lebo dvere obsahuju auto");
             return;
         }
         
         if (this.zvolene) {
+            System.out.println("Nemozem otvorit, lebo hrac si dvere vybral");
             return;
         }
         

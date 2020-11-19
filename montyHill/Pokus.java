@@ -14,10 +14,17 @@ public class Pokus {
         
         this.sutaz.zvolDvere(nahodneCisla.nextInt(3));
         
-        this.sutaz.otvorDvere(nahodneCisla.nextInt(3));
+        int cislo;
+        do {
+            cislo = nahodneCisla.nextInt(3);
+        } while (!this.sutaz.dajuSaDvereOtvorit(cislo));
+        this.sutaz.otvorDvere(cislo);
         
         if (this.maZmenitVolbu) {
-            this.sutaz.zvolDvere(nahodneCisla.nextInt(3));
+            do {
+                cislo = nahodneCisla.nextInt(3);
+            } while (!this.sutaz.dajuSaDvereZvolit(cislo));
+            this.sutaz.zvolDvere(cislo);
         }
     }
     

@@ -36,4 +36,12 @@ public class Sutaz {
     public void otvorDvere(int cislo) {
         this.dvere[cislo].otvor();
     }
+    
+    public boolean dajuSaDvereOtvorit(int cislo) {
+        return this.dvere[cislo].dateSaOtvorit();
+    }
+    
+    public boolean dajuSaDvereZvolit(int cislo) {
+        return this.dvere[cislo].dateSaZvolit();
+    }
 }
