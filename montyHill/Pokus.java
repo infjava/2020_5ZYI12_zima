@@ -1,28 +1,28 @@
 import java.util.Random;
 
 public class Pokus {
+    private Random nahodneCisla;
     private boolean maZmenitVolbu;
     private Sutaz sutaz;
     
-    public Pokus(boolean maZmenitVolbu) {
+    public Pokus(Random nahodneCisla, boolean maZmenitVolbu) {
+        this.nahodneCisla = nahodneCisla;
         this.maZmenitVolbu = maZmenitVolbu;
-        this.sutaz = new Sutaz();
+        this.sutaz = new Sutaz(this.nahodneCisla);
     }
     
     public void vykonajPokus() {
-        Random nahodneCisla = new Random();
-        
-        this.sutaz.zvolDvere(nahodneCisla.nextInt(3));
+        this.sutaz.zvolDvere(this.nahodneCisla.nextInt(3));
         
         int cislo;
         do {
-            cislo = nahodneCisla.nextInt(3);
+            cislo = this.nahodneCisla.nextInt(3);
         } while (!this.sutaz.dajuSaDvereOtvorit(cislo));
         this.sutaz.otvorDvere(cislo);
         
         if (this.maZmenitVolbu) {
             do {
-                cislo = nahodneCisla.nextInt(3);
+                cislo = this.nahodneCisla.nextInt(3);
             } while (!this.sutaz.dajuSaDvereZvolit(cislo));
             this.sutaz.zvolDvere(cislo);
         }
