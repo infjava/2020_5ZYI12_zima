@@ -6,10 +6,10 @@ public class Sachovnica {
                 policko.zmenStranu(20);
                 policko.posunVodorovne(stlpec * 20);
                 policko.posunZvisle(riadok * 20);
-                if ((riadok + stlpec) % 2 == 0) {
-                    policko.zmenFarbu("black");
-                } else {
+                if ((riadok + stlpec) % 2 == vyska % 2) {
                     policko.zmenFarbu("white");
+                } else {
+                    policko.zmenFarbu("black");
                 }
                 policko.zobraz();
             }
