@@ -1,5 +1,9 @@
 public class Sachovnica {
+    private Stvorec[][] policka;
+    
     public Sachovnica(int sirka, int vyska) {
+        this.policka = new Stvorec[vyska][sirka];
+        
         for (int riadok = 0; riadok < vyska; riadok++) {
             for (int stlpec = 0; stlpec < sirka; stlpec++) {
                 Stvorec policko = new Stvorec();
@@ -12,6 +16,24 @@ public class Sachovnica {
                     policko.zmenFarbu("black");
                 }
                 policko.zobraz();
+                
+                this.policka[riadok][stlpec] = policko;
+            }
+        }
+    }
+    
+    public void zobraz() {
+        for (Stvorec[] riadok : this.policka) {
+            for (Stvorec policko : riadok) {
+                policko.zobraz();
+            }
+        }
+    }
+    
+    public void skry() {
+        for (Stvorec[] riadok : this.policka) {
+            for (Stvorec policko : riadok) {
+                policko.skry();
             }
         }
     }
