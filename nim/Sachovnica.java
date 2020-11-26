@@ -4,6 +4,8 @@ public class Sachovnica {
     private ArrayList<Stvorec> policka;
     private ArrayList<Kamen> kamene;
     
+    private boolean jeZobrazena;
+    
     private int sirka;
     private int vyska;
     
@@ -30,6 +32,8 @@ public class Sachovnica {
         }
         
         this.kamene = new ArrayList<Kamen>();
+        
+        this.jeZobrazena = false;
     }
     
     public Kamen polozKamen() {
@@ -46,6 +50,8 @@ public class Sachovnica {
         for (Kamen kamen : this.kamene) {
             kamen.zobraz();
         }
+        
+        this.jeZobrazena = true;
     }
     
     public void skry() {
@@ -56,6 +62,8 @@ public class Sachovnica {
         for (Kamen kamen : this.kamene) {
             kamen.skry();
         }
+        
+        this.jeZobrazena = false;
     }
     
     public int getSirka() {
@@ -64,5 +72,9 @@ public class Sachovnica {
     
     public int getVyska() {
         return this.vyska;
+    }
+    
+    public boolean getJeZobrazena() {
+        return this.jeZobrazena;
     }
 }

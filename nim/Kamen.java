@@ -6,7 +6,10 @@ public class Kamen {
         this.kamen.zmenPriemer(18);
         this.kamen.posunVodorovne(-19 + (sachovnica.getSirka() - 1) * 20);
         this.kamen.posunZvisle(-59);
-        this.kamen.zobraz();
+        
+        if (sachovnica.getJeZobrazena()) {
+            this.kamen.zobraz();
+        }
     }
     
     public void zobraz() {
