@@ -17,7 +17,6 @@ public class Sachovnica {
                 } else {
                     policko.zmenFarbu("black");
                 }
-                policko.zobraz();
                 
                 this.policka.add(policko);
             }
