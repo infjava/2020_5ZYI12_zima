@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Sachovnica {
     private ArrayList<Stvorec> policka;
+    private ArrayList<Kamen> kamene;
+    
     private int sirka;
     private int vyska;
     
@@ -26,17 +28,33 @@ public class Sachovnica {
                 this.policka.add(policko);
             }
         }
+        
+        this.kamene = new ArrayList<Kamen>();
+    }
+    
+    public Kamen polozKamen() {
+        Kamen kamen = new Kamen(this);
+        this.kamene.add(kamen);
+        return kamen;
     }
     
     public void zobraz() {
         for (Stvorec policko : this.policka) {
             policko.zobraz();
         }
+        
+        for (Kamen kamen : this.kamene) {
+            kamen.zobraz();
+        }
     }
     
     public void skry() {
         for (Stvorec policko : this.policka) {
             policko.skry();
+        }
+        
+        for (Kamen kamen : this.kamene) {
+            kamen.skry();
         }
     }
     
