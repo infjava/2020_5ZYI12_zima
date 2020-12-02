@@ -1,17 +1,15 @@
 public class Nim {
     private Kamen kamen;
     private Sachovnica sachovnica;
-    private String menoPrveho;
-    private String menoDruheho;
+    private String menoDalsiehoHraca;
     private String menoHracaNaTahu;
     
     public Nim(int sirkaSachovnice, int vyskaSachovnice, String menoPrveho, String menoDruheho) {
         this.sachovnica = new Sachovnica(sirkaSachovnice, vyskaSachovnice);
         this.kamen = sachovnica.polozKamen();
         this.sachovnica.zobraz();
-        this.menoPrveho = menoPrveho;
-        this.menoDruheho = menoDruheho;
         this.menoHracaNaTahu = menoPrveho;
+        this.menoDalsiehoHraca = menoDruheho;
     }
     
     public String getMenoHracaNaTahu() {
@@ -32,10 +30,9 @@ public class Nim {
         
         this.kamen.posunSa(novyRiadok, novyStlpec);
         
-        if (this.menoHracaNaTahu.equals(this.menoPrveho))
-            this.menoHracaNaTahu = this.menoDruheho;
-        else
-            this.menoHracaNaTahu = this.menoPrveho;
+        String odlozeneMeno = this.menoHracaNaTahu;
+        this.menoHracaNaTahu = this.menoDalsiehoHraca;
+        this.menoDalsiehoHraca = odlozeneMeno;
     }
     
     public void posunVlavo(int pocetPolicok) {
@@ -52,9 +49,8 @@ public class Nim {
 
         this.kamen.posunSa(novyRiadok, novyStlpec);
         
-        if (this.menoHracaNaTahu.equals(this.menoPrveho))
-            this.menoHracaNaTahu = this.menoDruheho;
-        else
-            this.menoHracaNaTahu = this.menoPrveho;
+        String odlozeneMeno = this.menoHracaNaTahu;
+        this.menoHracaNaTahu = this.menoDalsiehoHraca;
+        this.menoDalsiehoHraca = odlozeneMeno;
     }
 }
