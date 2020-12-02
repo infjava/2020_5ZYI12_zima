@@ -26,6 +26,14 @@ public class Kamen {
         this.kamen.skry();
     }
     
+    public int getRiadok() {
+        return this.poziciaRiadok;
+    }
+    
+    public int getStlpec() {
+        return this.poziciaStlpec;
+    }
+    
     public void posunSa(int riadok, int stlpec) {
         int posunStlpce = stlpec - this.poziciaStlpec;
         int posunRiadky = riadok - this.poziciaRiadok;
