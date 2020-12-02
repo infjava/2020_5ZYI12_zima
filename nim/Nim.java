@@ -1,19 +1,25 @@
 public class Nim {
     private Kamen kamen;
     private Sachovnica sachovnica;
-    private String menoDalsiehoHraca;
-    private String menoHracaNaTahu;
+    private String menoPrveho;
+    private String menoDruheho;
+    private boolean jePrvyNaTahu;
     
     public Nim(int sirkaSachovnice, int vyskaSachovnice, String menoPrveho, String menoDruheho) {
         this.sachovnica = new Sachovnica(sirkaSachovnice, vyskaSachovnice);
         this.kamen = sachovnica.polozKamen();
         this.sachovnica.zobraz();
-        this.menoHracaNaTahu = menoPrveho;
-        this.menoDalsiehoHraca = menoDruheho;
+        this.menoPrveho = menoPrveho;
+        this.menoDruheho = menoDruheho;
+        this.jePrvyNaTahu = true;
     }
     
     public String getMenoHracaNaTahu() {
-        return this.menoHracaNaTahu;
+        if (this.jePrvyNaTahu) {
+            return this.menoPrveho;
+        } else {
+            return this.menoDruheho;
+        }
     }
     
     public void posunDole(int pocetPolicok) {
@@ -30,9 +36,7 @@ public class Nim {
         
         this.kamen.posunSa(novyRiadok, novyStlpec);
         
-        String odlozeneMeno = this.menoHracaNaTahu;
-        this.menoHracaNaTahu = this.menoDalsiehoHraca;
-        this.menoDalsiehoHraca = odlozeneMeno;
+        this.jePrvyNaTahu = !this.jePrvyNaTahu;
     }
     
     public void posunVlavo(int pocetPolicok) {
@@ -49,8 +53,6 @@ public class Nim {
 
         this.kamen.posunSa(novyRiadok, novyStlpec);
         
-        String odlozeneMeno = this.menoHracaNaTahu;
-        this.menoHracaNaTahu = this.menoDalsiehoHraca;
-        this.menoDalsiehoHraca = odlozeneMeno;
+        this.jePrvyNaTahu = !this.jePrvyNaTahu;
     }
 }
