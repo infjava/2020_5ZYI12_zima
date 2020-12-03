@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Nim {
     private Kamen kamen;
     private Sachovnica sachovnica;
@@ -32,6 +34,7 @@ public class Nim {
     
     private void posun(int pocetPolicokRiadok, int pocetPolicokStlpec) {
         if (pocetPolicokRiadok <= 0 && pocetPolicokStlpec <= 0) {
+            System.out.println("Tak to teda nie!");
             return;
         }
         
@@ -39,10 +42,12 @@ public class Nim {
         int novyStlpec = this.kamen.getStlpec() - pocetPolicokStlpec;
         
         if (novyRiadok < 1) {
+            System.out.println("Tak to teda nie!");
             return;
         }
         
         if (novyStlpec < 1) {
+            System.out.println("Tak to teda nie!");
             return;
         }
 
@@ -54,7 +59,7 @@ public class Nim {
         
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.menaHracov.length;
         
-        if (this.getMenoHracaNaTahu().equals("PC")) {
+        if (this.getMenoHracaNaTahu().equals("PC") && this.menoVyhercu == null) {
             this.tahPocitaca();
         }
     }
@@ -68,7 +73,12 @@ public class Nim {
         } else if (stlpec > riadok) {
             this.posunVlavo(stlpec - riadok);
         } else  {
-            // nahodny tah
+            Random nahodneCisla = new Random();
+            if (nahodneCisla.nextBoolean()) {
+                this.posunDole(nahodneCisla.nextInt(riadok));
+            } else {
+                this.posunVlavo(nahodneCisla.nextInt(stlpec));
+            }
         }
     }
 }
