@@ -14,6 +14,10 @@ public class Nim {
         this.menaHracov = new String[] { menoPrveho, menoDruheho };
         this.indexHracaNaTahu = 0;
         this.menoVyhercu = null;
+        
+        if (this.getMenoHracaNaTahu().equals("PC")) {
+            this.tahPocitaca();
+        }
     }
     
     public String getMenoVyhercu() {
