@@ -79,9 +79,9 @@ public class Nim {
         } else  {
             Random nahodneCisla = new Random();
             if (nahodneCisla.nextBoolean()) {
-                this.posunDole(nahodneCisla.nextInt(riadok));
+                this.posunDole(nahodneCisla.nextInt(riadok - 1) + 1);
             } else {
-                this.posunVlavo(nahodneCisla.nextInt(stlpec));
+                this.posunVlavo(nahodneCisla.nextInt(stlpec - 1) + 1);
             }
         }
     }
