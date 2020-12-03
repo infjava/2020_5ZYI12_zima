@@ -23,33 +23,24 @@ public class Nim {
     }
     
     public void posunDole(int pocetPolicok) {
-        if (pocetPolicok <= 0) {
+        this.posun(pocetPolicok, 0);
+    }
+    
+    public void posunVlavo(int pocetPolicok) {
+        this.posun(0, pocetPolicok);
+    }
+    
+    private void posun(int pocetPolicokRiadok, int pocetPolicokStlpec) {
+        if (pocetPolicokRiadok <= 0 && pocetPolicokStlpec <= 0) {
             return;
         }
         
-        int novyRiadok = this.kamen.getRiadok() - pocetPolicok;
-        int novyStlpec = this.kamen.getStlpec();
+        int novyRiadok = this.kamen.getRiadok() - pocetPolicokRiadok;
+        int novyStlpec = this.kamen.getStlpec() - pocetPolicokStlpec;
         
         if (novyRiadok < 1) {
             return;
         }
-        
-        this.kamen.posunSa(novyRiadok, novyStlpec);
-        
-        if (novyRiadok == 1 && novyStlpec == 1) {
-            this.menoVyhercu = this.getMenoHracaNaTahu();
-        }
-        
-        this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.menaHracov.length;
-    }
-    
-    public void posunVlavo(int pocetPolicok) {
-        if (pocetPolicok <= 0) {
-            return;
-        }
-        
-        int novyRiadok = this.kamen.getRiadok();
-        int novyStlpec = this.kamen.getStlpec() - pocetPolicok;
         
         if (novyStlpec < 1) {
             return;
