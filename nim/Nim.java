@@ -40,6 +40,14 @@ public class Nim {
         this.posun(pocetPolicok, pocetPolicok);
     }
     
+    public int getPoziciaKamenaRiadok() {
+        return this.kamen.getRiadok();
+    }
+    
+    public int getPoziciaKamenaStlpec() {
+        return this.kamen.getStlpec();
+    }
+    
     private void posun(int pocetPolicokRiadok, int pocetPolicokStlpec) {
         if (pocetPolicokRiadok <= 0 && pocetPolicokStlpec <= 0) {
             System.out.println("Tak to teda nie!");
