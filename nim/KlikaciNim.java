@@ -33,4 +33,8 @@ public class KlikaciNim {
             System.out.format("Hru vyhral '%s'%n", this.hra.getMenoVyhercu());
         }
     }
+    
+    public void zrus() {
+        System.exit(0);
+    }
 }
