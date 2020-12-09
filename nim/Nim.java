@@ -36,6 +36,10 @@ public class Nim {
         this.posun(0, pocetPolicok);
     }
     
+    public void posunSikmo(int pocetPolicok) {
+        this.posun(pocetPolicok, pocetPolicok);
+    }
+    
     private void posun(int pocetPolicokRiadok, int pocetPolicokStlpec) {
         if (pocetPolicokRiadok <= 0 && pocetPolicokStlpec <= 0) {
             System.out.println("Tak to teda nie!");
