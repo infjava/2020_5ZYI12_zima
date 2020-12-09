@@ -8,6 +8,8 @@ public class KlikaciNim {
         manazer.spravujObjekt(this);
         
         this.vyskaSachovnice = vyskaSachovnice;
+        
+        System.out.format("Hru zacina '%s'%n", this.hra.getMenoHracaNaTahu());
     }
     
     public void vyberSuradnice(int x, int y) {
@@ -23,6 +25,12 @@ public class KlikaciNim {
             this.hra.posunVlavo(posunStlpce);
         } else if (posunRiadky == posunStlpce) {
             this.hra.posunSikmo(posunRiadky);
+        }
+        
+        if (this.hra.getMenoVyhercu() == null) {
+            System.out.format("V tahu pokracuje '%s'%n", this.hra.getMenoHracaNaTahu());
+        } else {
+            System.out.format("Hru vyhral '%s'%n", this.hra.getMenoVyhercu());
         }
     }
 }
