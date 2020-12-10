@@ -23,9 +23,9 @@ public class Displej {
     
     public void zmenStav(int x, int y, boolean svieti) {
         if (svieti) {
-            this.pixely[y][x].zobraz();
+            this.pixely[y][x].zmenFarbu("yellow");
         } else {
-            this.pixely[y][x].skry();
+            this.pixely[y][x].zmenFarbu("red");
         }
         
     }
