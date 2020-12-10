@@ -3,9 +3,11 @@ public class Displej {
     private static final int SIRKA = 10;
     private static final int VYSKA = 20;
     
+    private static Displej instancia;
+    
     private Stvorec[][] pixely;
     
-    public Displej() {
+    private Displej() {
         this.pixely = new Stvorec[Displej.VYSKA][Displej.SIRKA];
         
         for (int y = 0; y < Displej.VYSKA; y++) {
@@ -19,6 +21,13 @@ public class Displej {
                 this.pixely[y][x] = pixel;
             }
         }
+    }
+    
+    public static Displej getInstancia() {
+        if (Displej.instancia == null) {
+            Displej.instancia = new Displej();
+        }
+        return Displej.instancia;
     }
     
     public void zmenStav(int x, int y, boolean svieti) {
