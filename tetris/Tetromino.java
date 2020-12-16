@@ -43,6 +43,28 @@ public class Tetromino {
         this.nakresli();
     }
     
+    public void otoc() {
+        int staraSirka = this.pixelySvietia[0].length;
+        int staraVyska = this.pixelySvietia.length;
+        
+        int novaSirka = staraVyska;
+        int novaVyska = staraSirka;
+
+        boolean[][] novePixely = new boolean[novaVyska][novaSirka];
+        
+        for (int staraY = 0; staraY < staraVyska; staraY++) {
+            for (int staraX = 0; staraX < staraSirka; staraX++) {
+                int novaX = staraY;
+                int novaY = staraSirka - 1 - staraX;
+                novePixely[novaY][novaX] = this.pixelySvietia[staraY][staraX];
+            }
+        }
+        
+        this.zmaz();
+        this.pixelySvietia = novePixely;
+        this.nakresli();
+    }
+    
     private void zmaz() {
         for (int y = 0; y < this.pixelySvietia.length; y++) {
             for (int x = 0; x < this.pixelySvietia[y].length; x++) {
