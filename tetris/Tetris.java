@@ -1,10 +1,13 @@
 public class Tetris {
     private Tetromino aktualneTetromino;
+    private int cisloTiku;
     
     public Tetris() {
         this.aktualneTetromino = new Tetromino(
             new boolean[][]{{true, true, true}, {false, true, false}}
         );
+        
+        this.cisloTiku = 0;
         
         new Manazer().spravujObjekt(this);
     }
@@ -22,6 +25,12 @@ public class Tetris {
     }
     
     public void tik() {
+        this.cisloTiku++;
+        
+        if (this.cisloTiku % 4 != 0) {
+            return;
+        }
+        
         this.aktualneTetromino.posunDole();
     }
 }
