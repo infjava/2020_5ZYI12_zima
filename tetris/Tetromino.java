@@ -33,6 +33,16 @@ public class Tetromino {
         this.nakresli();
     }
     
+    public void posunDole() {
+        if (this.poziciaY >= Displej.VYSKA - this.pixelySvietia.length) {
+            return;
+        }
+        
+        this.zmaz();
+        this.poziciaY++;
+        this.nakresli();
+    }
+    
     private void zmaz() {
         for (int y = 0; y < this.pixelySvietia.length; y++) {
             for (int x = 0; x < this.pixelySvietia[y].length; x++) {
