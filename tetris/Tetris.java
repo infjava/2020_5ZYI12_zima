@@ -24,6 +24,10 @@ public class Tetris {
         this.aktualneTetromino.otoc();
     }
     
+    public void zrus() {
+        System.exit(0);
+    }
+    
     public void tik() {
         this.cisloTiku++;
         
