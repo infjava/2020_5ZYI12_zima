@@ -36,5 +36,11 @@ public class Tetris {
         }
         
         this.aktualneTetromino.posunDole();
+        
+        if (this.aktualneTetromino.jeUplneDole()) {
+            this.aktualneTetromino = new Tetromino(
+                new boolean[][]{{true, true, true}, {false, true, false}}
+            );
+        }
     }
 }
