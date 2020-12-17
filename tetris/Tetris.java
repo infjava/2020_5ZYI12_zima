@@ -1,9 +1,11 @@
+import java.io.IOException;
+
 public class Tetris {
     private TvoricTetromin tvoric;
     private Tetromino aktualneTetromino;
     private int cisloTiku;
     
-    public Tetris() {
+    public Tetris() throws IOException {
         this.tvoric = new TvoricTetromin();
         
         this.aktualneTetromino = this.tvoric.vytvorNahodne();
