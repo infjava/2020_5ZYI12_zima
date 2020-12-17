@@ -1,11 +1,12 @@
 public class Tetris {
+    private TvoricTetromin tvoric;
     private Tetromino aktualneTetromino;
     private int cisloTiku;
     
     public Tetris() {
-        this.aktualneTetromino = new Tetromino(
-            new boolean[][]{{true, true, true}, {false, true, false}}
-        );
+        this.tvoric = new TvoricTetromin();
+        
+        this.aktualneTetromino = this.tvoric.vytvorNahodne();
         
         this.cisloTiku = 0;
         
@@ -38,9 +39,7 @@ public class Tetris {
         this.aktualneTetromino.posunDole();
         
         if (this.aktualneTetromino.jeUplneDole()) {
-            this.aktualneTetromino = new Tetromino(
-                new boolean[][]{{true, true, true}, {false, true, false}}
-            );
+            this.aktualneTetromino = this.tvoric.vytvorNahodne();
         }
     }
 }
